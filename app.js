@@ -105,6 +105,15 @@ app
         }
       }
     );
+  })
+  .delete((req, res) => {
+    Article.deleteOne({ title: req.params.articleTitle }, err => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send("Successfully deleted the article");
+      }
+    });
   });
 
 app.listen(3000, function () {
