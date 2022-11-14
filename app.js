@@ -42,6 +42,15 @@ app
         res.send("Successfully added a new article");
       }
     });
+  })
+  .delete((req, res) => {
+    Article.deleteMany(err => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send("Successfully deleted all the articles");
+      }
+    });
   });
 
 app.listen(3000, function () {
